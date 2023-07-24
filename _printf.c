@@ -42,6 +42,33 @@ int _printf(const char *format, ...)
 				}
 				break;
 
+			case 'd':
+			case 'i':
+				{
+					int num = va_arg(args, int);
+					int divisor = 1;
+
+					if (num < 0)
+					{
+						putchar('-');
+						printed_chars++;
+						num = -num;
+					}
+
+					while (num / divisor > 9)
+						divisor *= 10;
+
+					while (divisor)
+					{
+						putchar('0' + num / divisor);
+						printed_chars++;
+						num %= divisor;
+						divisor /= 10;
+					}
+				}
+				break;
+
+
 			case '%':
 				putchar('%');
 				printed_chars++;
