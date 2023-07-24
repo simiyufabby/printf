@@ -129,4 +129,61 @@ int _print_binary(unsigned int num)
 
 	return (printed_chars);
 }
+/**
+ * print_number - Prints an integer to the standard output.
+ * @n: The integer to be printed.
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int print_number(int n)
+{
+	int printed_chars = 0;
 
+	(void)n;
+
+	return (printed_chars);
+
+}
+
+/**
+ * print_unsigned - Prints an unsigned integer to the standard output.
+ * @n: The unsigned integer to be printed.
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int print_unsigned(unsigned int n)
+{
+	int printed_chars = 0;
+
+	(void)n;
+
+	return (printed_chars);
+}
+
+/**
+ * print_octal - Prints an unsigned integer in octal format to the standard output.
+ * @n: The unsigned integer to be printed.
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int print_octal(unsigned int n)
+{
+	int printed_chars = 0;
+
+	(void)n;
+
+	return (printed_chars);
+}
+
+/**
+ * print_hex - Prints an unsigned integer in hexadecimal format to the standard output.
+ * @n: The unsigned integer to be printed.
+ * @uppercase: Whether to print in uppercase (1) or lowercase (0) hexadecimal format.
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int print_hex(unsigned int n, int uppercase)
+{
+	int printed_chars = 0;
+
+	(void)n;
+	(void)uppercase;
+
+	return (printed_chars);
+}
