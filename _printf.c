@@ -137,7 +137,6 @@ int _print_binary(unsigned int num)
 int print_number(int n)
 {
 	int printed_chars = 0;
-
 	(void)n;
 
 	return (printed_chars);
@@ -152,7 +151,6 @@ int print_number(int n)
 int print_unsigned(unsigned int n)
 {
 	int printed_chars = 0;
-
 	(void)n;
 
 	return (printed_chars);
@@ -166,7 +164,6 @@ int print_unsigned(unsigned int n)
 int print_octal(unsigned int n)
 {
 	int printed_chars = 0;
-
 	(void)n;
 
 	return (printed_chars);
@@ -181,7 +178,6 @@ int print_octal(unsigned int n)
 int print_hex(unsigned int n, int uppercase)
 {
 	int printed_chars = 0;
-
 	(void)n;
 	(void)uppercase;
 
