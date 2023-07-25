@@ -103,6 +103,9 @@ int _printf(const char *format, ...)
 					non_printable_str++;
 				}
 				break;
+			case 'p':
+				printed_chars += print_address(va_arg(args, void *));
+				break;
 
 			default:
 				putchar('%');
@@ -290,3 +293,17 @@ int print_non_printable(char c)
 	}
 }
 
+/**
+ * print_address - Prints a pointer's address in hexadecimal format.
+ * @ptr: The pointer to be printed.
+ * Return: The number of characters printed (excluding the null byte).
+ */
+int print_address(void *ptr)
+{
+	uintptr_t address = (uintptr_t)ptr;
+	char buffer[18];
+
+	snprintf(buffer, sizeof(buffer), "0x%lx", address);
+
+	return printf("%s", buffer);
+}
