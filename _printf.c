@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * _printf - function prints output according to a format.
@@ -16,6 +15,7 @@ int _printf(const char *format, ...)
 	const char *non_printable_str;
 	int plus_flag, space_flag, hash_flag;
 	int length_modifier = 0;
+	int field_width = 0;
 
 	(void)plus_flag;
 	(void)space_flag;
@@ -56,6 +56,12 @@ int _printf(const char *format, ...)
 			else if (*format == 'h')
 			{
 				length_modifier = -1;
+				format++;
+			}
+
+			while (*format >= '0' && *format <= '9')
+			{
+				field_width = field_width * 10 + (*format - '0');
 				format++;
 			}
 			
