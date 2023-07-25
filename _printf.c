@@ -15,10 +15,12 @@ int _printf(const char *format, ...)
 	const char *str;
 	const char *non_printable_str;
 	int plus_flag, space_flag, hash_flag;
+	int length_modifier = 0;
 
 	(void)plus_flag;
 	(void)space_flag;
 	(void)hash_flag;
+	(void)length_modifier;
 
 	va_start(args, format);
 	
@@ -42,6 +44,18 @@ int _printf(const char *format, ...)
 					space_flag = 1;
 				else if (*format == '#')
 					hash_flag = 1;
+				format++;
+			}
+
+			if (*format == 'l')
+			{
+				length_modifier = 1;
+				format++;
+			}
+
+			else if (*format == 'h')
+			{
+				length_modifier = -1;
 				format++;
 			}
 			
