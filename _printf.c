@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	int plus_flag, space_flag, hash_flag;
 	int length_modifier = 0;
 	int field_width = 0;
+	int precision = -1;
 
 	(void)plus_flag;
 	(void)space_flag;
@@ -63,6 +64,17 @@ int _printf(const char *format, ...)
 			{
 				field_width = field_width * 10 + (*format - '0');
 				format++;
+			}
+
+			if (*format == '.')
+			{
+				format++;
+				precision = 0;
+				while (*format >= '0' && *format <= '9')
+				{
+					precision = precision * 10 + (*format - '0');
+					format++;
+				}
 			}
 			
 			switch (*format)
