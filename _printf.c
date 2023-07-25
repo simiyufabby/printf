@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int printed_chars = 0;
 	const char *str;
+	const char *non_printable_str;
 
 	va_start(args, format);
 
@@ -92,6 +93,15 @@ int _printf(const char *format, ...)
 
 			case 'X':
 				printed_chars += print_hex(va_arg(args, unsigned int), (*format == 'X'));
+				break;
+
+			case 'S':
+				non_printable_str = va_arg(args, const char *);
+				while (*non_printable_str)
+				{
+					printed_chars += print_non_printable(*non_printable_str);
+					non_printable_str++;
+				}
 				break;
 
 			default:
@@ -260,3 +270,23 @@ int print_hex(unsigned int n, int uppercase)
 
 	return (printed_chars);
 }
+
+/**
+ * print_non_printable - Prints a non-printable character in the specified format.
+ * @c: The character to be printed.
+ * Return: The number of characters printed (excluding the null byte).
+ */
+
+int print_non_printable(char c)
+{
+	if (c < 32 || c >= 127)
+	{
+		return printf("\\x%02X", (unsigned char)c);
+	}
+	else
+	{
+		putchar(c);
+		return (1);
+	}
+}
+
