@@ -17,10 +17,12 @@ int _printf(const char *format, ...)
 	int length_modifier = 0;
 	int field_width = 0;
 	int precision = -1;
+	int zero_flag;
 
 	(void)plus_flag;
 	(void)space_flag;
 	(void)hash_flag;
+	(void)zero_flag;
 	(void)length_modifier;
 
 	va_start(args, format);
@@ -36,6 +38,7 @@ int _printf(const char *format, ...)
 			plus_flag = 0;
 			space_flag = 0;
 			hash_flag = 0;
+			zero_flag = 0;
 
 			while (*format == '+' || *format == ' ' || *format == '#')
 			{
@@ -45,6 +48,8 @@ int _printf(const char *format, ...)
 					space_flag = 1;
 				else if (*format == '#')
 					hash_flag = 1;
+				else if (*format == '0')
+					zero_flag = 1;
 				format++;
 			}
 
