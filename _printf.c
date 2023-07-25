@@ -234,11 +234,7 @@ int print_octal(unsigned int n)
  */
 int print_hex(unsigned int n, int uppercase)
 {
-	char hex_digits[] = "0123456789abcdef";
-
-	if (uppercase)
-		hex_digits = "0123456789ABCDEF";
-
+	const char *hex_digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
 	int printed_chars = 0;
 	char hex_buffer[32];
 	int i = 0;
