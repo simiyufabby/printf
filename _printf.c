@@ -18,7 +18,9 @@ int _printf(const char *format, ...)
 	int field_width = 0;
 	int precision = -1;
 	int zero_flag;
+	int left_justify_flag;
 
+	(void)left_justify_flag;
 	(void)plus_flag;
 	(void)space_flag;
 	(void)hash_flag;
@@ -39,6 +41,7 @@ int _printf(const char *format, ...)
 			space_flag = 0;
 			hash_flag = 0;
 			zero_flag = 0;
+			left_justify_flag = 0;
 
 			while (*format == '+' || *format == ' ' || *format == '#')
 			{
@@ -50,6 +53,8 @@ int _printf(const char *format, ...)
 					hash_flag = 1;
 				else if (*format == '0')
 					zero_flag = 1;
+				else if (*format == '-')
+					left_justify_flag = 1;
 				format++;
 			}
 
