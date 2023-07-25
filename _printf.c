@@ -14,6 +14,11 @@ int _printf(const char *format, ...)
 	int printed_chars = 0;
 	const char *str;
 	const char *non_printable_str;
+	int plus_flag, space_flag, hash_flag;
+
+	(void)plus_flag;
+	(void)space_flag;
+	(void)hash_flag;
 
 	va_start(args, format);
 	
@@ -25,6 +30,20 @@ int _printf(const char *format, ...)
 
 			if (*format == '\0')
 				break;
+			plus_flag = 0;
+			space_flag = 0;
+			hash_flag = 0;
+
+			while (*format == '+' || *format == ' ' || *format == '#')
+			{
+				if (*format == '+')
+					plus_flag = 1;
+				else if (*format == ' ')
+					space_flag = 1;
+				else if (*format == '#')
+					hash_flag = 1;
+				format++;
+			}
 			
 			switch (*format)
 			{
