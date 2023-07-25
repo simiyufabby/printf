@@ -79,6 +79,21 @@ int _printf(const char *format, ...)
 				printed_chars++;
 				break;
 
+			case 'u':
+				printed_chars += print_unsigned(va_arg(args, unsigned int));
+				break;
+
+			case 'o':
+				printed_chars += print_octal(va_arg(args, unsigned int));
+				break;
+			case 'x':
+				printed_chars += print_hex(va_arg(args, unsigned int), 0);
+				break;
+
+			case 'X':
+				printed_chars += print_hex(va_arg(args, unsigned int), (*format == 'X'));
+				break;
+
 			default:
 				putchar('%');
 				putchar(*format);
@@ -136,10 +151,13 @@ int _print_binary(unsigned int num)
  */
 int print_number(int n)
 {
-	int printed_chars = 0;
-	(void)n;
+	if (n < 0)
+	{
+		putchar('-');
+		n = -n;
+	}
 
-	return (printed_chars);
+	return print_unsigned(n);
 
 }
 
@@ -150,8 +168,28 @@ int print_number(int n)
  */
 int print_unsigned(unsigned int n)
 {
+	char unsigned_buffer[100];
+	int i = 0;
 	int printed_chars = 0;
-	(void)n;
+
+	if (n == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+
+	while (n != 0)
+	{
+		unsigned_buffer[i] = '0' + (n % 10);
+		n /= 10;
+		i++;
+	}
+
+	for (i = i - 1; i >= 0; i--)
+	{
+		putchar(unsigned_buffer[i]);
+		printed_chars++;
+	}
 
 	return (printed_chars);
 }
@@ -163,8 +201,27 @@ int print_unsigned(unsigned int n)
  */
 int print_octal(unsigned int n)
 {
+	int octal_digits[100];
+	int i = 0;
 	int printed_chars = 0;
-	(void)n;
+
+	if (n == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+
+	while (n != 0)
+	{
+		octal_digits[i] = n % 8;
+		n /= 8;
+		i++;
+	}
+	for (i = i - 1; i >= 0; i--)
+	{
+		putchar('0' + octal_digits[i]);
+		printed_chars++;
+	}
 
 	return (printed_chars);
 }
@@ -177,9 +234,33 @@ int print_octal(unsigned int n)
  */
 int print_hex(unsigned int n, int uppercase)
 {
+	char hex_digits[] = "0123456789abcdef";
+
+	if (uppercase)
+		hex_digits = "0123456789ABCDEF";
+
 	int printed_chars = 0;
-	(void)n;
-	(void)uppercase;
+	char hex_buffer[32];
+	int i = 0;
+
+	if (n == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+
+	while (n != 0)
+	{
+		hex_buffer[i] = hex_digits[n % 16];
+		n /= 16;
+		i++;
+	}
+
+	for (i = i - 1; i >= 0; i--)
+	{
+		putchar(hex_buffer[i]);
+		printed_chars++;
+	}
 
 	return (printed_chars);
 }
