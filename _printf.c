@@ -167,6 +167,32 @@ int _printf(const char *format, ...)
 				printed_chars += print_address(va_arg(args, void *));
 				break;
 
+			case 'r':
+				{
+					char *str = va_arg(args, char *);
+					reverse_string(str);
+					while (*str)
+					{
+						putchar(*str);
+						str++;
+						printed_chars++;
+					}
+				}
+				break;
+
+			case 'R':
+				{
+					char *str = va_arg(args, char *);
+					rot13(str);
+					while (*str)
+					{
+						putchar(*str);
+						str++;
+						printed_chars++;
+					}
+				}
+				break;
+
 			default:
 				putchar('%');
 				putchar(*format);
@@ -394,5 +420,32 @@ void reverse_string(char *str)
 
 		str[i] = str[len - i - 1];
 		str[len - i - 1] = temp;
+	}
+}
+
+/**
+ * rot13 - Applies the ROT13 cipher to a string.
+ * @str: The string to be encoded.
+ *
+ * Return: void
+ */
+void rot13(char *str)
+{
+	int i;
+	char c;
+	char base;
+
+	if (str == NULL)
+		return;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		c = str[i];
+
+		if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		{
+			base = (c >= 'A' && c <= 'Z') ? 'A' : 'a';
+			str[i] = (c - base + 13) % 26 + base;
+		}
 	}
 }
