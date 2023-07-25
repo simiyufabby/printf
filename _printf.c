@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 	int precision = -1;
 	int zero_flag;
 	int left_justify_flag;
-
 	(void)left_justify_flag;
 	(void)plus_flag;
 	(void)space_flag;
@@ -367,4 +366,33 @@ int print_address(void *ptr)
 	snprintf(buffer, sizeof(buffer), "0x%lx", address);
 
 	return printf("%s", buffer);
+}
+
+/**
+ * reverse_string - Reverses a given string in-place.
+ * @str: The string to be reversed.
+ *
+ * Return: void
+ */
+void reverse_string(char *str)
+{
+	int len;
+	char temp;
+	int i;
+
+	if (str == NULL)
+		return;
+
+	len = 0;
+
+	while (str[len] != '\0')
+		len++;
+
+	for (i = 0; i < len / 2; i++)
+	{
+		temp = str[i];
+
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+	}
 }
