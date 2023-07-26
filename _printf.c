@@ -393,10 +393,10 @@ int print_address(void *ptr)
 }
 
 /**
- * reverse_string - Reverses a given string in-place.
- * @str: The string to be reversed.
+ * reverse_string - Function reverses a given string in-place.
+ * @str: This is the string to be reversed.
  *
- * Return: void
+ * Return: Return value is void
  */
 void reverse_string(char *str)
 {
