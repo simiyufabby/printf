@@ -210,11 +210,11 @@ int _printf(const char *format, ...)
 }
 
 /**
- * _print_binary - Prints an unsigned integer in binary format.
+ * _print_binary - Function Prints an unsigned integer in binary format.
  *
- * @num: The unsigned integer to be printed in binary format.
+ * @num: unsigned integer to be printed in binary format.
  *
- * Return: The number of characters printed (excluding the null byte).
+ * Return: The number of characters printed
  */
 int _print_binary(unsigned int num)
 {
