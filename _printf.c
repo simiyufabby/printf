@@ -292,9 +292,9 @@ int print_unsigned(unsigned int n)
 }
 
 /**
- * print_octal - Prints an unsigned integer in octal format to the standard output.
- * @n: The unsigned integer to be printed.
- * Return: The number of characters printed (excluding the null byte).
+ * print_octal - Prints an unsigned int in octal format to standard output.
+ * @n: unsigned integer to be printed.
+ * Return: The number of characters printed
  */
 int print_octal(unsigned int n)
 {
