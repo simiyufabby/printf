@@ -242,9 +242,9 @@ int _print_binary(unsigned int num)
 	return (printed_chars);
 }
 /**
- * print_number - Prints an integer to the standard output.
- * @n: The integer to be printed.
- * Return: The number of characters printed (excluding the null byte).
+ * print_number - Prints an integer to  standard output.
+ * @n: integer to be printed.
+ * Return: The number of characters printed
  */
 int print_number(int n)
 {
