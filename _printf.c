@@ -259,9 +259,9 @@ int print_number(int n)
 }
 
 /**
- * print_unsigned - Prints an unsigned integer to the standard output.
- * @n: The unsigned integer to be printed.
- * Return: The number of characters printed (excluding the null byte).
+ * print_unsigned - Prints an unsigned integer to standard output.
+ * @n: unsigned integer to be printed.
+ * Return: number of characters printed
  */
 int print_unsigned(unsigned int n)
 {
