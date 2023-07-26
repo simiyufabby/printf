@@ -324,10 +324,10 @@ int print_octal(unsigned int n)
 }
 
 /**
- * print_hex - Prints an unsigned integer in hexadecimal format to the standard output.
- * @n: The unsigned integer to be printed.
- * @uppercase: Whether to print in uppercase (1) or lowercase (0) hexadecimal format.
- * Return: The number of characters printed (excluding the null byte).
+ * print_hex - Prints an unsigned int in hexadecimal format to standard output.
+ * @n: unsigned integer to be printed.
+ * @uppercase: print in uppercase (1) or lowercase (0) hexadecimal format.
+ * Return: number of characters printed
  */
 int print_hex(unsigned int n, int uppercase)
 {
