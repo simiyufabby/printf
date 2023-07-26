@@ -359,9 +359,9 @@ int print_hex(unsigned int n, int uppercase)
 }
 
 /**
- * print_non_printable - Prints a non-printable character in the specified format.
- * @c: The character to be printed.
- * Return: The number of characters printed (excluding the null byte).
+ * print_non_printable - Prints non-printable character in specified format.
+ * @c: character to be printed.
+ * Return: The number of characters printed
  */
 
 int print_non_printable(char c)
