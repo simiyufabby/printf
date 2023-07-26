@@ -378,9 +378,9 @@ int print_non_printable(char c)
 }
 
 /**
- * print_address - Prints a pointer's address in hexadecimal format.
+ * print_address - Function Prints a pointer's address in hexadecimal format.
  * @ptr: The pointer to be printed.
- * Return: The number of characters printed (excluding the null byte).
+ * Return: The number of characters printed
  */
 int print_address(void *ptr)
 {
