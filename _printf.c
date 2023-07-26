@@ -422,10 +422,9 @@ void reverse_string(char *str)
 }
 
 /**
- * rot13 - Applies the ROT13 cipher to a string.
- * @str: The string to be encoded.
- *
- * Return: void
+ * rot13 - Function applies the ROT13 cipher to a string.
+ * @str: This is the string to be encoded.
+ * Return: Return value is void
  */
 void rot13(char *str)
 {
